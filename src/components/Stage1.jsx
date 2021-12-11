@@ -15,7 +15,11 @@ const Stage1 = () => {
     const validate = validateInput(value);
 
     if (validate) {
-      console.log(value);
+      //   form is valid...add player
+      setError([false, ""]);
+      context.addPlayer(value);
+
+      textInput.current.value = "";
     } else {
       console.log("error");
     }
@@ -27,11 +31,13 @@ const Stage1 = () => {
       return false;
     }
     if (value.length <= 2) {
-      setError([true, "Sorry, name must be 3 or more char at least"]);
+      setError([true, "Sorry, name must be at least 3 or more char"]);
       return false;
     }
     return true;
   };
+
+  console.log(context);
 
   return (
     <div>
@@ -43,9 +49,39 @@ const Stage1 = () => {
             ref={textInput}
           />
         </Form.Group>
-        <Button className="miami mt-2" variant="primary" type="submit">
+        {error[0] ? (
+          <Alert className="p-2 mt-2" variant="danger">
+            {error}
+          </Alert>
+        ) : (
+          ""
+        )}
+        <Button className="miami border-0 mt-2" variant="primary" type="submit">
           Add player
         </Button>
+        {context.state.players && context.state.players.length > 0 ? (
+          <div>
+            <hr />
+            <div>
+              <ul className="list-group">
+                {context.state.players.map((item, idx) => (
+                  <li
+                    key={idx}
+                    className="list-group-item d-flex justify-content-between align-items-center list-group-item-action"
+                  >
+                    {item}
+                    <span
+                      className="badge badge-danger"
+                      onClick={() => context.removePlayer(idx)}
+                    >
+                      x
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ) : null}
       </Form>
     </div>
   );
