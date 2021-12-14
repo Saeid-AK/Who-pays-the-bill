@@ -37,7 +37,7 @@ const Stage1 = () => {
     return true;
   };
 
-  console.log(context);
+  // console.log(context);
 
   return (
     <div>

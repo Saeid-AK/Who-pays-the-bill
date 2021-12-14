@@ -48,9 +48,11 @@ class MyProvider extends Component {
 
   generateLooser = () => {
     const { players } = this.state;
+    const randomPlayer = Math.floor(Math.random() * players.length);
     this.setState({
-      result: players[Math.floor(Math.random() * players.length)],
+      result: players[randomPlayer],
     });
+    console.log(randomPlayer + 1);
   };
 
   resetGame = () => {
@@ -60,7 +62,6 @@ class MyProvider extends Component {
       result: "",
     });
   };
-
   render() {
     return (
       <>

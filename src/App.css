@@ -1,6 +1,6 @@
 h1 {
   font-family: "Pacifico", cursive;
-  color: #db3eb1;
+  color: #;
   text-decoration: underline;
   text-decoration-color: #41b6e6;
   font-style: italic;
@@ -8,7 +8,7 @@ h1 {
 
 button.miami {
   background-color: #41b6e6 !important;
-  border-color: #db3eb1 !important;
+  border-color: #585858 !important;
 }
 
 .badge-danger {
@@ -41,7 +41,7 @@ button.miami {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #dc3eb1;
+  background: #41b6e6;
   color: white;
   padding: 15px 40px;
   font-size: 16px;
